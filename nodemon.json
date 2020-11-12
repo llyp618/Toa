@@ -1,0 +1,17 @@
+{
+  "verbose": true,
+  "ext": "ts js",
+  "exec": "ts-node ./src/bin.ts",
+  "watch": [
+    "src/*"
+  ],
+  "ignore": [
+    ".git",
+    "node_modules"
+  ],
+  "delay": "500",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "inspect": true
+}
