@@ -13,7 +13,10 @@
     "incremental": true,
     "noImplicitAny": true,
     "strictNullChecks": false,
-    "watch": false
+    "watch": false,
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["./src/**/*"],
   "exclude": []

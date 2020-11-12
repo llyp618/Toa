@@ -1,10 +1,8 @@
 import * as Koa from 'koa';
+import router from './router/index';
 
 const app = new Koa();
 
-app.use((ctx) => {
-  ctx.set('Content-Type', 'text/html');
-  ctx.body = '<html><h1>nihafsdsdfsdffasdfoss</h1></html>';
-});
+app.use(router.routes()).use(router.allowedMethods());
 
 export default app;
