@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
 import app from './app';
-import d from 'debug';
 import * as http from 'http';
 import config from './config';
-
-const debug = d('pm:server');
 
 const port = normalizePort(config.PORT);
 
@@ -52,5 +49,5 @@ function onError (error: any) {
 function onListening () {
   const addr = server.address();
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }

@@ -1,5 +1,5 @@
-import { Context } from 'koa';
+import { Middleware } from 'koa';
 
-export const sayhello = (ctx : Context) => {
+export const sayhello: Middleware = (ctx) => {
   ctx.body = 'hello world';
 };

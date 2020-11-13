@@ -1,3 +1,4 @@
 export default {
-  PORT: 7676
+  PORT: 7676,
+  KEY: ['toa-test']
 };
