@@ -2,14 +2,20 @@ import * as Koa from 'koa';
 import * as json from 'koa-json';
 import * as bodyParser from 'koa-bodyparser';
 import * as onerror from 'koa-onerror';
+import * as helmet from 'koa-helmet';
+import * as favicon from 'koa-favicon';
 import router from './router';
 import config from './config';
 
 const app = new Koa();
 
+app.keys = config.KEY;
+
 onerror(app);
 
-app.keys = config.KEY;
+app.use(favicon(config.FAVICO));
+
+app.use(helmet());
 
 app.use(json());
 
