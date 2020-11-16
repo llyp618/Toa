@@ -1,15 +1,16 @@
 
 declare module 'koa-onerror' {
+  import * as Koa from 'koa';
   type errOptions = {
-    text?: any;
-    json?: any;
-    html?: any;
-    redirect?: any;
+    text?: (err: Error, ctx: Koa.Context) => void;
+    json?: (err: Error, ctx: Koa.Context) => void;
+    html?: (err: Error, ctx: Koa.Context) => void;
+    redirect?: string;
     template?: string;
     accepts?: any;
   }
 
-  const fun : (app: any, options?: errOptions) => void;
+  const onerror : (app: Koa, options?: errOptions) => void;
 
-  export default fun;
+  export = onerror;
 }

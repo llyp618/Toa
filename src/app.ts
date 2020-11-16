@@ -1,7 +1,7 @@
 import * as Koa from 'koa';
-import json from 'koa-json';
-import bodyParser from 'koa-bodyparser';
-import onerror from 'koa-onerror';
+import * as json from 'koa-json';
+import * as bodyParser from 'koa-bodyparser';
+import * as onerror from 'koa-onerror';
 import router from './router';
 import config from './config';
 
