@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import app from './app';
 import * as http from 'http';
 import config from './config';
