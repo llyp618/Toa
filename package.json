@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
-    "build": "rm -r ./dist && tsc",
+    "start": "NODE_ENV=development gulp",
+    "build": "NODE_ENV=production gulp",
     "lint": "eslint src/"
   },
   "author": "",
@@ -35,8 +35,13 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-ts-alias": "^1.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.6",
-    "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   }
 }
