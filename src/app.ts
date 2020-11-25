@@ -6,6 +6,7 @@ import * as koaHelmet from 'koa-helmet';
 import * as koaFavicon from 'koa-favicon';
 import * as koaStatic from 'koa-static';
 import * as koaSession from 'koa-session';
+import * as koaViews from 'koa-views';
 import router from './router';
 import config from './config';
 
@@ -30,6 +31,14 @@ app.use(koaBody({
 app.use(koaSession({
   ...config.SESSION_CONFIG
 }, app));
+
+app.use(koaViews(config.VIEWS, {
+  map: {
+    html: 'nunjucks',
+    nj: 'nunjucks'
+  },
+  extension: 'nj'
+}));
 
 app.use(router.routes()).use(router.allowedMethods());
 

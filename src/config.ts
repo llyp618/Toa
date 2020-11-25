@@ -12,6 +12,8 @@ export default {
 
   PUBLIC: path.resolve(__dirname, './public'),
 
+  VIEWS: path.resolve(__dirname, './views'),
+
   SESSION_CONFIG: {
     key: 'toa.sess',
     maxAge: 60 * 60 * 1000,

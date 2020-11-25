@@ -1,8 +1,11 @@
 import * as Router from '@koa/router';
-import * as helloCtrl from '../controller/ctrl.helloworld';
+import apiRouter from './router_api';
+import viewRouter from './router_view';
 
 const router = new Router();
 
-router.get('/api/helloworld', helloCtrl.sayhello);
+router
+  .use(apiRouter.routes())
+  .use(viewRouter.routes());
 
 export default router;
