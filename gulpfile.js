@@ -5,6 +5,7 @@ const clean = require('gulp-clean');
 const copy = require('gulp-copy')
 const changed = require('gulp-changed')
 const nodemon = require('gulp-nodemon');
+const watch = require('gulp-watch'); // repalce "gulp.watch" to watch delete or add file
 
 const tsProject = ts.createProject('tsconfig.json');
 
@@ -12,7 +13,7 @@ const NODE_ENV = process.env.NODE_ENV
 
 
 function cleanDist() {
-  return gulp.src('./dist/*', {read: false}).pipe(clean())
+  return gulp.src('./dist/*', {read: false}).pipe(clean());
 }
 
 
@@ -26,11 +27,13 @@ function compile(){
     );
 }
 
-function copyPublic () {
+function copyAssets () {
   return (
-    gulp.src(['src/public/*']).pipe(copy('dist/public', {prefix: 2}))
-  )
+    gulp.src(['src/public/*', 'src/views/*']).pipe(copy('dist/', { prefix: 1 }))
+  );
 }
+
+
 
 function devServer (done) {
   nodemon({
@@ -46,8 +49,10 @@ function devServer (done) {
 }
 
 if (NODE_ENV === 'production') {
-  gulp.task('default', gulp.series([cleanDist, compile, copyPublic]))
+  gulp.task('default', gulp.series([cleanDist, compile, copyAssets]));
 } else {
-  gulp.task('default', gulp.series([cleanDist, compile,  copyPublic, devServer]))
-  gulp.watch('./src/**/*', { delay: 800 }, compile, copyPublic)
+  gulp.task('default', gulp.series([cleanDist, compile,  copyAssets, devServer]));
+  // watch
+  watch('./src/**/*.ts', compile);
+  watch(['./src/views/*', './src/public'], copyAssets);
 }

@@ -5,6 +5,7 @@ import * as koaOnerror from 'koa-onerror';
 import * as koaHelmet from 'koa-helmet';
 import * as koaFavicon from 'koa-favicon';
 import * as koaStatic from 'koa-static';
+import * as koaSession from 'koa-session';
 import router from './router';
 import config from './config';
 
@@ -25,6 +26,10 @@ app.use(koaJson());
 app.use(koaBody({
   enableTypes: ['json', 'form', 'text']
 }));
+
+app.use(koaSession({
+  ...config.SESSION_CONFIG
+}, app));
 
 app.use(router.routes()).use(router.allowedMethods());
 
