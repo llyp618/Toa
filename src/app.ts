@@ -1,9 +1,10 @@
 import * as Koa from 'koa';
-import * as json from 'koa-json';
-import * as bodyParser from 'koa-bodyparser';
-import * as onerror from 'koa-onerror';
-import * as helmet from 'koa-helmet';
-import * as favicon from 'koa-favicon';
+import * as koaJson from 'koa-json';
+import * as koaBody from 'koa-bodyparser';
+import * as koaOnerror from 'koa-onerror';
+import * as koaHelmet from 'koa-helmet';
+import * as koaFavicon from 'koa-favicon';
+import * as koaStatic from 'koa-static';
 import router from './router';
 import config from './config';
 
@@ -11,15 +12,17 @@ const app = new Koa();
 
 app.keys = config.KEY;
 
-onerror(app);
+koaOnerror(app);
 
-app.use(favicon(config.FAVICO));
+app.use(koaStatic(config.PUBLIC));
 
-app.use(helmet());
+app.use(koaFavicon(config.FAVICO));
 
-app.use(json());
+app.use(koaHelmet());
 
-app.use(bodyParser({
+app.use(koaJson());
+
+app.use(koaBody({
   enableTypes: ['json', 'form', 'text']
 }));
 
