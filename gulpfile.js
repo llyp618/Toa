@@ -3,7 +3,8 @@ const ts = require('gulp-typescript');
 const alias = require('gulp-ts-alias');
 const clean = require('gulp-clean');
 const copy = require('gulp-copy')
-const changed = require('gulp-changed')
+const changed = require('gulp-changed');
+const plumber = require('gulp-plumber');
 const nodemon = require('gulp-nodemon');
 const watch = require('gulp-watch'); // repalce "gulp.watch" to watch delete or add file
 
@@ -20,6 +21,11 @@ function cleanDist() {
 function compile(){
   return (
     tsProject.src()
+      .pipe(plumber({ 
+        errorHandler(e){
+          console.error(e)
+        }} 
+      ))
       .pipe(changed('dist'))
       .pipe(alias({configuration: tsProject.config}))
       .pipe(tsProject()).js
@@ -44,6 +50,7 @@ function devServer (done) {
     'env': {
       'NODE_ENV': 'development'
     },
+    'watch': ['dist'],
     'done': done
   })
 }

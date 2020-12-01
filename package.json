@@ -50,6 +50,7 @@
     "gulp-cli": "^2.3.0",
     "gulp-copy": "^4.0.1",
     "gulp-nodemon": "^2.5.0",
+    "gulp-plumber": "^1.2.1",
     "gulp-ts-alias": "^1.1.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-watch": "^5.0.1",

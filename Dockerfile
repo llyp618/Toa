@@ -1,13 +1,11 @@
 FROM node:current-slim
 
-WORKDIR /usr/src/app
+WORKDIR /usr/toa
 
 COPY ["package.json", "yarn.lock", "./"]
 
-RUN yarn --production
+RUN yarn 
 
 EXPOSE 7676
 
 COPY . .
-
-CMD ["yarn", "pro"]

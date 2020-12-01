@@ -11,6 +11,7 @@
     "baseUrl": "./",
     "incremental": true,
     "noImplicitAny": true,
+    "noEmitOnError": true,
     "strictNullChecks": false,
     "watch": false,
     "paths": {
