@@ -14,6 +14,11 @@ export default {
 
   VIEWS: path.resolve(__dirname, './views'),
 
+  REDIS: {
+    host: '192.168.124.177',
+    port: 6379
+  },
+
   SESSION_CONFIG: {
     key: 'toa.sess',
     maxAge: 60 * 60 * 1000,

@@ -9,3 +9,5 @@ RUN yarn
 EXPOSE 7676
 
 COPY . .
+
+CMD [ "npm", "start" ]

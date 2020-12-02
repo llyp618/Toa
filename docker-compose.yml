@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+  app:
+    build: .
+    image: toa:dev
+    ports: 
+      - 7676:7676
+    volumes: 
+      - ./:/usr/toa/
+    container_name: toa
+    depends_on: 
+      - redis
+    tty: true
+  
+
+  

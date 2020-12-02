@@ -9,6 +9,7 @@ import * as koaSession from 'koa-session';
 import * as koaViews from 'koa-views';
 import router from './router';
 import config from './config';
+import redisStore from '@/db/redisStore';
 
 const app = new Koa();
 
@@ -29,7 +30,8 @@ app.use(koaBody({
 }));
 
 app.use(koaSession({
-  ...config.SESSION_CONFIG
+  ...config.SESSION_CONFIG,
+  store: redisStore
 }, app));
 
 app.use(koaViews(config.VIEWS, {

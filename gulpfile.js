@@ -48,7 +48,8 @@ function devServer (done) {
     'script': './dist/main.js',
     'delay': '500',
     'env': {
-      'NODE_ENV': 'development'
+      'NODE_ENV': 'development',
+      // 'DEBUG': 'redis'
     },
     'watch': ['dist'],
     'done': done
@@ -58,7 +59,7 @@ function devServer (done) {
 if (NODE_ENV === 'production') {
   gulp.task('default', gulp.series([cleanDist, compile, copyAssets]));
 } else {
-  gulp.task('default', gulp.series([cleanDist, compile,  copyAssets, devServer]));
+  gulp.task('default', gulp.series([compile,  copyAssets, devServer]));
   // watch
   watch('./src/**/*.ts', compile);
   watch(['./src/views/*', './src/public'], copyAssets);
