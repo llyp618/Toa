@@ -49,7 +49,7 @@ function devServer (done) {
     'delay': '500',
     'env': {
       'NODE_ENV': 'development',
-      // 'DEBUG': 'redis'
+      'DEBUG': 'koa-redis'
     },
     'watch': ['dist'],
     'done': done

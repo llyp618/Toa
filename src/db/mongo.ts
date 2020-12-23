@@ -7,7 +7,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-export default () => {
+const connectMongo = () => {
   mongoose.connect(config.MONGO.uri);
 
   mongoose.connection.on('connected', function () {
@@ -20,3 +20,5 @@ export default () => {
     console.log('Mongo Connection disconnected');
   });
 };
+
+export default connectMongo;

@@ -13,3 +13,20 @@ export const sayhello: Middleware = (ctx) => {
 export const renderHello: Middleware = async (ctx) => {
   await ctx.render('hello');
 };
+
+export const login : Middleware = async (ctx) => {
+  const { username, password } = ctx.query;
+  if (username === 'lulu' && password === '123') {
+    ctx.session.user = 'lulu';
+  }
+  ctx.body = {
+    res: 'success'
+  };
+};
+
+export const logout: Middleware = async (ctx) => {
+  ctx.session = null;
+  ctx.body = {
+    res: 'success'
+  };
+};

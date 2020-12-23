@@ -10,9 +10,9 @@ import * as koaViews from 'koa-views';
 import router from './router';
 import config from './config';
 import redisStore from '@/db/redisStore';
-import mongoConnect from '@/db/mongo';
+import connectMongo from '@/db/mongo';
 
-mongoConnect();
+connectMongo();
 
 const app = new Koa();
 
