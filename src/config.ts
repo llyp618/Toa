@@ -19,6 +19,10 @@ export default {
     port: 6379
   },
 
+  MONGO: {
+    uri: 'mongodb://192.168.124.177:27018/lulu'
+  },
+
   SESSION_CONFIG: {
     key: 'toa.sess',
     maxAge: 60 * 60 * 1000,

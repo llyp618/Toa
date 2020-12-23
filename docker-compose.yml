@@ -6,6 +6,18 @@ services:
     container_name: redis
     ports:
       - 6379:6379
+  # mysql:
+  #   image: mysql:8.0.22
+  #   container_name: mysql
+  #   ports:
+  #     - 3306:3306
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - 27018:27017
+  
+# docker 暂且作为数据库启动器吧，app放容器内感觉不到好处
   app:
     build: .
     image: toa:dev

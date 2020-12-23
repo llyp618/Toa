@@ -7,6 +7,7 @@
     "start": "NODE_ENV=development gulp",
     "build": "NODE_ENV=production gulp",
     "pro": "NODE_ENV=production node dist/main",
+    "dbup": "sudo docker-compose up",
     "lint": "eslint src/"
   },
   "author": "",
@@ -25,6 +26,7 @@
     "koa-session": "^6.1.0",
     "koa-static": "^5.0.0",
     "koa-views": "^6.3.1",
+    "mongoose": "^5.11.8",
     "nunjucks": "^3.2.2"
   },
   "devDependencies": {
